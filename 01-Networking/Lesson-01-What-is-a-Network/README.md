@@ -37,6 +37,52 @@
         Almost every cyberattack involves communication between systems. Understanding networking helps security professionals identify how attackers enter a network, move between devices, communicate with malicious servers, and exfiltrate data. Without networking knowledge, investigating incidents becomes much more difficult.  
       ```
 
+## Real World Example
+
+When you open YouTube,
+
+Your laptop
+
+↓
+
+Wi-Fi Router
+
+↓
+
+ISP
+
+↓
+
+Internet
+
+↓
+
+Google Servers
+
+↓
+
+Video loads
+
+This entire communication happens because of networking.
+
+
+## Cybersecurity Perspective
+
+Attackers use networks to:
+
+- Scan systems
+- Deliver malware
+- Steal information
+- Move inside organizations
+
+Defenders use networking to:
+
+- Detect attacks
+- Monitor traffic
+- Block malicious communication
+- Investigate incidents
+
+
 
 ## Key Takeaways
 
@@ -45,3 +91,4 @@
 - Networking is the foundation of cybersecurity.
 - Understanding networks helps identify and investigate attacks.
 - Every cybersecurity role relies on networking knowledge.
+

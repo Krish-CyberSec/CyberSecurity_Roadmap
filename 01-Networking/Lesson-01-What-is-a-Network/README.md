@@ -31,8 +31,17 @@
 
    ```
 
-   4. Why does networking matter in cybersecurity?
+4. Why does networking matter in cybersecurity?
       ```
         CyberSecurity is all about dealing with digital devices, so to have a good future in the cyber field, we should first learn how devices communicate with each other
         Almost every cyberattack involves communication between systems. Understanding networking helps security professionals identify how attackers enter a network, move between devices, communicate with malicious servers, and exfiltrate data. Without networking knowledge, investigating incidents becomes much more difficult.  
       ```
+
+
+## Key Takeaways
+
+- A network connects devices so they can communicate.
+- Devices require protocols to communicate successfully.
+- Networking is the foundation of cybersecurity.
+- Understanding networks helps identify and investigate attacks.
+- Every cybersecurity role relies on networking knowledge.

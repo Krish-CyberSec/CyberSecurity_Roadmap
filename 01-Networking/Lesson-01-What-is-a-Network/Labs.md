@@ -39,6 +39,7 @@ See the path packets take.
 Observation:
 - Number of hops:
 - Interesting findings:
+```
 | Hop   | Observation                                                                | Interpretation                                                                                                                                                                       |
 | ----- | -------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | 1     | `192.168.1.1`                                                              | Your local router. Normal.                                                                                                                                                           |
@@ -49,7 +50,7 @@ Observation:
 | 6–11  | Google backbone (`72.14.x.x`, `142.251.x.x`, `108.170.x.x`, `192.178.x.x`) | Traffic has entered Google's network. Latency remains very low (3–7 ms).                                                                                                             |
 | 12–22 | `Request timed out.`                                                       | These routers are almost certainly configured not to reply to TTL-expired ICMP packets. Since later hops respond, these are **not packet-loss events**.                              |
 | 23    | `lcdels-in-f139.1e100.net`                                                 | Destination reached successfully in about **3–4 ms**.                                                                                                                                |
-
+```
 ---
 
 ## Conclusion

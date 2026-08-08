@@ -1,0 +1,28 @@
+Laptop                    Switch                  Printer
+
+Know IP
+192.168.1.30
+
+   │
+   │ ARP Request
+   │ Who has 192.168.1.30?
+   ├────────────────────────────►
+
+                           Broadcast
+
+◄────────────────────────────┐
+                             │
+          Every Device Receives
+
+Printer Replies
+
+"My MAC is
+BB-BB-BB"
+
+◄────────────────────────────
+
+Laptop Updates ARP Cache
+
+↓
+
+Send Actual Data

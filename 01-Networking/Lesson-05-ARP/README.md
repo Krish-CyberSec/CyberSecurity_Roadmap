@@ -325,60 +325,6 @@ False.
 
 The sender device generates the ARP Request when it needs the destination MAC Address on the local network.
 
----
-
-# Hands-on Lab
-
-## Lab 1
-
-Display the ARP Cache.
-
-```cmd
-arp -a
-```
-
-Observe:
-
-- IP Address
-- Physical Address
-- Entry Type
-
----
-
-## Lab 2
-
-Ping another device on your local network.
-
-```cmd
-ping <IP Address>
-```
-
-Then execute:
-
-```cmd
-arp -a
-```
-
-Observe whether a new ARP entry has been added.
-
----
-
-## Lab 3
-
-Capture ARP traffic using Wireshark.
-
-Apply the filter:
-
-```
-arp
-```
-
-Identify:
-
-- ARP Request
-- ARP Reply
-
----
 
 # Key Takeaways
 

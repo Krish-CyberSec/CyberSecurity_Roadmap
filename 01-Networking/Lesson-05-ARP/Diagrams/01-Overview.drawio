@@ -1,0 +1,33 @@
+                ARP
+
+         Knows IP Address
+
+                │
+
+                ▼
+
+      Needs MAC Address
+
+                │
+
+                ▼
+
+       Sends ARP Request
+
+                │
+
+                ▼
+
+       Receives ARP Reply
+
+                │
+
+                ▼
+
+       Updates ARP Cache
+
+                │
+
+                ▼
+
+         Sends Data

@@ -1,0 +1,25 @@
+Victim
+
+↓
+
+ARP Request
+
+↓
+
+Attacker
+
+↓
+
+Fake ARP Reply
+
+↓
+
+Victim Updates ARP Cache
+
+↓
+
+Traffic Goes Through Attacker
+
+↓
+
+MITM

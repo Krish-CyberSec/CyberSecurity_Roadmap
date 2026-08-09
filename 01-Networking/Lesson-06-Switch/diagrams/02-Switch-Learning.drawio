@@ -1,0 +1,26 @@
+Laptop
+
+MAC:
+AA-AA-AA-AA
+
+        │
+
+        ▼
+
++------------------------+
+|        SWITCH          |
+|                        |
+| Reads Source MAC       |
+|                        |
+| Learns:                |
+|                        |
+| AA-AA-AA-AA            |
+|      ↓                 |
+|    Port 1              |
++------------------------+
+
+↓
+
+CAM Table Updated
+
+AA-AA-AA-AA → Port 1

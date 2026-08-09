@@ -1,0 +1,28 @@
+                    THE PROBLEM
+
+                  Traditional Hub
+
+                      HUB
+                       │
+        ┌──────────────┼──────────────┐
+        │              │              │
+      Laptop         Printer       Server
+        │              │              │
+        └──────────────┼──────────────┘
+                       │
+                Every frame is
+            sent to EVERY device
+
+Problems
+
+❌ Wasted Bandwidth
+❌ Poor Performance
+❌ Security Risk
+❌ More Collisions
+
+                Engineers needed
+                  a better solution
+
+                       ▼
+
+                    NETWORK SWITCH

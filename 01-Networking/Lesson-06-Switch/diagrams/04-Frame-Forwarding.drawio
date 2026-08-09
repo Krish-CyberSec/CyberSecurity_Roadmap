@@ -1,0 +1,36 @@
+Laptop
+
+MAC
+AA-AA
+
+        │
+
+Destination
+
+BB-BB
+
+        │
+
+        ▼
+
++------------------------+
+|       SWITCH           |
+|                        |
+| CAM Table              |
+|                        |
+| BB-BB → Port 2         |
++------------------------+
+
+        │
+
+        ▼
+
+Printer
+
+MAC
+
+BB-BB
+
+✔ Only Printer receives the frame
+
+Other devices receive nothing.

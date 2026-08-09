@@ -1,0 +1,19 @@
+OSI MODEL
+
+Layer 7  Application
+
+Layer 6  Presentation
+
+Layer 5  Session
+
+Layer 4  Transport
+
+Layer 3  Router
+         IP Address
+
+Layer 2  Switch
+         MAC Address
+         ARP
+
+Layer 1  Ethernet
+         Wi-Fi

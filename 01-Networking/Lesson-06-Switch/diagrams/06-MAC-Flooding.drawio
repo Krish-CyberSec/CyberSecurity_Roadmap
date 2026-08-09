@@ -1,0 +1,33 @@
+                 Attacker
+
+                      │
+
+Thousands of Fake MAC Addresses
+
+                      │
+
+                      ▼
+
+                 +------------+
+                 |  SWITCH    |
+                 +------------+
+
+CAM Table becomes Full
+
+                     │
+
+                     ▼
+
+Switch starts Flooding
+
+                     │
+
+                     ▼
+
+Victim Traffic becomes visible
+
+                     │
+
+                     ▼
+
+Potential Packet Sniffing

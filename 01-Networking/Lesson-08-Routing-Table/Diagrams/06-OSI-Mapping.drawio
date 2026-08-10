@@ -1,0 +1,27 @@
+┌──────────────────────────────┐
+│ Layer 7  Application         │
+│ Browser / Applications       │
+├──────────────────────────────┤
+│ Layer 6  Presentation        │
+│ Not covered yet              │
+├──────────────────────────────┤
+│ Layer 5  Session             │
+│ Not covered yet              │
+├──────────────────────────────┤
+│ Layer 4  Transport           │
+│ TCP / UDP - Upcoming         │
+├──────────────────────────────┤
+│ Layer 3  Network             │
+│                              │
+│ IP Address                   │
+│ Router                       │
+│ Routing Table                │
+├──────────────────────────────┤
+│ Layer 2  Data Link           │
+│ Switch                       │
+│ MAC Address                  │
+│ ARP                          │
+├──────────────────────────────┤
+│ Layer 1  Physical            │
+│ Ethernet / Wi-Fi             │
+└──────────────────────────────┘

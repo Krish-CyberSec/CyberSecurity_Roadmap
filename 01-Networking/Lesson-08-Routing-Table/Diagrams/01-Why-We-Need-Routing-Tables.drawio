@@ -1,0 +1,22 @@
+                 PACKET ARRIVES
+                       │
+                       ▼
+              Destination IP
+                  8.8.8.8
+                       │
+                       ▼
+            ┌──────────────────┐
+            │      ROUTER      │
+            │                  │
+            │ "Where should I  │
+            │  send this next?"│
+            └────────┬─────────┘
+                     │
+                     ▼
+               ROUTING TABLE
+                     │
+                     ▼
+              Find Matching Route
+                     │
+                     ▼
+                Forward Packet

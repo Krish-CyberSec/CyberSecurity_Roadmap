@@ -1,0 +1,21 @@
+             PACKET
+                │
+                ▼
+        Destination IP
+                │
+                ▼
+        Search Routing Table
+                │
+                ▼
+       Matching Route Found?
+             /       \
+           YES        NO
+            │          │
+            ▼          ▼
+       Use Matching   Default
+          Route        Route?
+                       /   \
+                     YES    NO
+                      │      │
+                      ▼      ▼
+                  Forward   Drop

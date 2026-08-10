@@ -1,0 +1,19 @@
+             Packet
+          Destination:
+             8.8.8.8
+                │
+                ▼
+       ┌─────────────────┐
+       │  Routing Table  │
+       └────────┬────────┘
+                │
+       Specific route?
+             NO
+                │
+                ▼
+          0.0.0.0/0
+         Default Route
+                │
+                ▼
+          ISP / Upstream
+             Router

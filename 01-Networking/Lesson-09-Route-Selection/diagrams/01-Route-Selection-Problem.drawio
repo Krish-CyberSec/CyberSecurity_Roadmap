@@ -25,3 +25,7 @@
                            │
                            ▼
                  "Which route wins?"
+
+
+A destination can match multiple routes,
+so the router needs a route-selection rule.

@@ -1,40 +1,41 @@
-# Chapter 09 - Route Selection & Longest Prefix Match
+# Lesson 09 - Route Selection & Longest Prefix Match
 
 ## Module Information
 
-| Field                | Details                                |
-| -------------------- | -------------------------------------- |
-| Module               | Networking for Cybersecurity           |
-| Chapter              | 09                                     |
-| Topic                | Route Selection & Longest Prefix Match |
-| Difficulty           | Beginner → Intermediate                |
-| Estimated Study Time | 90–120 Minutes                         |
-| Status               | In Progress                            |
-| Prerequisites        | Chapters 01–08                         |
+| Field         | Details                                |
+| ------------- | -------------------------------------- |
+| Module        | Networking for Cybersecurity           |
+| Lesson        | 09                                     |
+| Topic         | Route Selection & Longest Prefix Match |
+| Difficulty    | Beginner → Intermediate                |
+| Prerequisites | Lessons 01–08                          |
+| OSI Layer     | Layer 3 – Network                      |
 
 ---
 
 # Learning Objectives
 
-After completing this chapter, you should be able to:
+After completing this lesson, you should be able to:
 
-* Explain why routers need route-selection rules.
+* Understand why routers need route-selection rules.
 * Understand what a network prefix represents.
-* Understand the concept of Longest Prefix Match.
-* Determine which routes match a destination IP.
+* Understand the relationship between prefix length and specificity.
+* Explain Longest Prefix Match.
+* Determine whether a route matches a destination IP.
 * Identify the most specific matching route.
-* Understand why a default route is less specific than other routes.
-* Explain why route selection matters in cybersecurity and GRC.
+* Understand the role of the default route.
+* Distinguish route matching from route selection.
+* Understand why routing decisions matter in cybersecurity and GRC.
 
 ---
 
-# The Engineering Problem
+# 1. The Problem
 
-In the previous chapter, we learned that a router uses a Routing Table to determine where packets should be forwarded.
+In the previous lesson, we learned that a router uses a **Routing Table** to determine where packets should be forwarded.
 
-But what happens when **more than one route matches the destination IP address?**
+But what happens when **multiple routes match the same destination IP address?**
 
-Consider these routes:
+Consider:
 
 ```text
 10.0.0.0/8
@@ -44,7 +45,7 @@ Consider these routes:
 10.10.10.0/24
 ```
 
-Now suppose a packet arrives with:
+Now a packet arrives with:
 
 ```text
 Destination IP:
@@ -52,78 +53,138 @@ Destination IP:
 10.10.10.50
 ```
 
-The destination matches all three networks.
+The destination belongs to all three networks.
 
-So the router needs another rule:
-
-> Which matching route is the most specific?
-
-This leads to **Longest Prefix Match**.
+Therefore, the router needs a rule to determine which route is the most appropriate.
 
 ---
 
-# What is Longest Prefix Match?
+# 2. Understanding Prefixes
 
-Longest Prefix Match is the process of selecting the **most specific matching route** for a destination IP address.
+IPv4 addresses contain:
+
+```text
+32 bits
+```
+
+The number after `/` represents the number of bits used for the network prefix.
 
 For example:
 
 ```text
-10.0.0.0/8
-        ↓
-10.10.0.0/16
-        ↓
-10.10.10.0/24
+/8
 ```
 
-The `/24` route is more specific than `/16`, which is more specific than `/8`.
+means:
+
+```text
+8 network bits
+24 host bits
+```
+
+While:
+
+```text
+/16
+```
+
+means:
+
+```text
+16 network bits
+16 host bits
+```
+
+And:
+
+```text
+/24
+```
+
+means:
+
+```text
+24 network bits
+8 host bits
+```
 
 Therefore:
 
 ```text
-10.10.10.0/24
+/8   → Broad
+/16  → More specific
+/24  → More specific
+/25  → Even more specific
 ```
 
-is selected when all three routes match the destination.
+A larger prefix length represents a more specific network.
 
 ---
 
-# Understanding Prefix Length
+# 3. Prefix and Subnet Mask
 
-The number after `/` represents the prefix length.
+The prefix length corresponds to a subnet mask.
 
 Examples:
 
-```text
-/8
-/16
-/24
-```
+| Prefix | Subnet Mask       |
+| ------ | ----------------- |
+| `/8`   | `255.0.0.0`       |
+| `/16`  | `255.255.0.0`     |
+| `/24`  | `255.255.255.0`   |
+| `/25`  | `255.255.255.128` |
 
-At a high level:
+Detailed subnetting and binary calculations will be covered separately.
 
-```text
-/8   → Broad network
-/16  → More specific
-/24  → More specific still
-```
+For this lesson, the important concept is:
 
-A larger prefix length means a more specific network definition.
-
-Detailed subnetting and binary calculations will be covered later.
+> **A longer prefix represents a more specific network.**
 
 ---
 
-# Example
+# 4. Broad vs Specific Networks
 
-Consider this routing table:
+Consider:
 
-| Destination | Prefix | Next Hop |
-| ----------- | -----: | -------- |
-| 10.0.0.0    |     /8 | Router A |
-| 10.10.0.0   |    /16 | Router B |
-| 10.10.10.0  |    /24 | Router C |
-| 0.0.0.0     |     /0 | ISP      |
+```text
+10.0.0.0/8
+```
+
+This represents a broad network.
+
+Compare it with:
+
+```text
+10.10.10.0/24
+```
+
+This describes a much more specific network.
+
+Conceptually:
+
+```text
+10.0.0.0/8
+      ↓
+10.10.0.0/16
+      ↓
+10.10.10.0/24
+```
+
+As the prefix becomes longer, the network becomes more specific.
+
+---
+
+# 5. What is Longest Prefix Match?
+
+> **Longest Prefix Match is the process of selecting the most specific matching route for a destination IP address.**
+
+Consider:
+
+```text
+10.0.0.0/8
+10.10.0.0/16
+10.10.10.0/24
+```
 
 Destination:
 
@@ -131,38 +192,158 @@ Destination:
 10.10.10.50
 ```
 
-Matching routes:
+All three routes match.
+
+The prefix lengths are:
 
 ```text
-10.0.0.0/8          ✓
-10.10.0.0/16        ✓
-10.10.10.0/24       ✓
-0.0.0.0/0           ✓
+/8
+/16
+/24
 ```
 
-The router selects:
+The longest prefix is:
+
+```text
+/24
+```
+
+Therefore:
 
 ```text
 10.10.10.0/24
 ```
 
-because it is the **longest matching prefix**.
+is selected.
 
 ---
 
-# Why Does the Default Route Not Win?
+# 6. Step-by-Step Example
 
-The default route is:
+Routing table:
+
+| Destination  | Prefix | Next Hop |
+| ------------ | -----: | -------- |
+| `10.0.0.0`   |   `/8` | Router A |
+| `10.10.0.0`  |  `/16` | Router B |
+| `10.10.10.0` |  `/24` | Router C |
+
+Destination:
+
+```text
+10.10.10.50
+```
+
+### Step 1 — Check `/8`
+
+```text
+10.0.0.0/8
+```
+
+The destination matches.
+
+### Step 2 — Check `/16`
+
+```text
+10.10.0.0/16
+```
+
+The destination also matches.
+
+### Step 3 — Check `/24`
+
+```text
+10.10.10.0/24
+```
+
+The destination also matches.
+
+### Step 4 — Compare Prefix Lengths
+
+```text
+/8
+/16
+/24
+```
+
+The longest prefix is:
+
+```text
+/24
+```
+
+Therefore:
+
+```text
+10.10.10.0/24
+```
+
+is the selected route.
+
+---
+
+# 7. Another Example
+
+Consider:
+
+| Destination  | Prefix |
+| ------------ | -----: |
+| `10.0.0.0`   |   `/8` |
+| `10.10.0.0`  |  `/16` |
+| `10.10.10.0` |  `/24` |
+| `0.0.0.0`    |   `/0` |
+
+Destination:
+
+```text
+10.10.20.10
+```
+
+Does:
+
+```text
+10.10.10.0/24
+```
+
+match?
+
+No.
+
+But:
+
+```text
+10.10.0.0/16
+```
+
+does match.
+
+Therefore, the `/16` route becomes the most specific matching route.
+
+This is important:
+
+> **The router doesn't simply choose the largest prefix. The prefix must first actually match the destination.**
+
+---
+
+# 8. The Default Route
+
+We previously learned about:
 
 ```text
 0.0.0.0/0
 ```
 
-It is extremely broad.
+This is the IPv4 **Default Route**.
 
-It essentially means:
+It is extremely broad and can match any IPv4 destination.
 
-> Match any IPv4 destination when a more specific route is not selected.
+However, it is less specific than routes such as:
+
+```text
+10.0.0.0/8
+10.10.0.0/16
+10.10.10.0/24
+```
 
 Therefore:
 
@@ -172,147 +353,63 @@ Therefore:
 
 when comparing specificity.
 
-The default route acts as a fallback when a more specific route isn't available.
+The default route acts as a fallback when a more specific matching route isn't available.
 
 ---
 
-# Route Selection Flow
+# 9. Route Matching vs Route Selection
 
-A simplified process is:
+These are two different concepts.
+
+## Route Matching
+
+The question is:
+
+> **Does this route contain the destination IP?**
+
+Example:
 
 ```text
-Packet Arrives
-      |
-      v
-Read Destination IP
-      |
-      v
-Search Routing Table
-      |
-      v
-Find Matching Routes
-      |
-      v
-Compare Prefix Lengths
-      |
-      v
-Select Longest Matching Prefix
-      |
-      v
-Forward Packet
+Route:
+
+10.10.0.0/16
+
+Destination:
+
+10.10.10.50
 ```
 
-This is a simplified learning model. Real routing decisions can also involve route preference, metrics, and other factors.
+Yes, it matches.
 
 ---
 
-# Example With Our Previous Lab
+## Route Selection
 
-Our Packet Tracer network contains:
+The question is:
+
+> **Several routes match. Which one should the router use?**
+
+Example:
 
 ```text
-Network 1
-
-192.168.1.0/24
+10.0.0.0/8
+10.10.0.0/16
+10.10.10.0/24
 ```
 
-and:
+If all three match:
 
 ```text
-Network 2
-
-192.168.2.0/24
+10.10.10.0/24
 ```
 
-If the router receives a packet destined for:
-
-```text
-192.168.2.20
-```
-
-the router identifies:
-
-```text
-192.168.2.0/24
-```
-
-as the matching network and forwards the packet toward that network.
+is selected because it has the longest matching prefix.
 
 ---
 
-# Why This Matters
+# 10. A More Detailed Example
 
-Route selection isn't simply about memorizing a networking rule.
-
-It determines **where traffic actually travels**.
-
-A routing decision can affect:
-
-* Network segmentation
-* Security boundaries
-* Firewall placement
-* Monitoring points
-* Traffic paths
-* Access between networks
-
----
-
-# Cybersecurity Perspective
-
-Unexpected routing can become a security concern.
-
-For example, an organization may expect traffic to follow:
-
-```text
-User Network
-      |
-      v
-Firewall
-      |
-      v
-Application Network
-```
-
-If routing is incorrectly configured, traffic could potentially take an unexpected path.
-
-This is why security professionals need to understand routing behavior.
-
----
-
-# GRC Perspective
-
-GRC professionals may encounter routing during:
-
-* Network architecture reviews
-* Security assessments
-* Change management
-* Network segmentation reviews
-* Security control assessments
-* Infrastructure audits
-
-A GRC analyst does not necessarily need to configure routing protocols, but understanding route selection helps them understand how network traffic can move between security zones.
-
----
-
-# OSI Model Mapping
-
-| OSI Layer               | Topics                                         |
-| ----------------------- | ---------------------------------------------- |
-| Layer 7 – Application   | Browser / Applications                         |
-| Layer 6 – Presentation  | Not covered yet                                |
-| Layer 5 – Session       | Not covered yet                                |
-| Layer 4 – Transport     | Not covered yet                                |
-| **Layer 3 – Network**   | **IP, Router, Routing Table, Route Selection** |
-| **Layer 2 – Data Link** | **Switch, MAC, ARP**                           |
-| Layer 1 – Physical      | Ethernet / Wi-Fi                               |
-
----
-
-# Hands-on Lab
-
-## Lab 1 – Route Selection
-
-Given:
+Consider:
 
 ```text
 10.0.0.0/8
@@ -322,78 +419,286 @@ Given:
 0.0.0.0/0
 ```
 
-Determine the selected route for:
+Destination:
 
 ```text
 10.10.10.150
 ```
 
-Do not use Google.
-
-Write down:
-
-1. Which routes match?
-2. Which prefix is the longest?
-3. Which route should be selected?
-4. Why?
-
----
-
-# Lab 2 – Cisco Packet Tracer
-
-Use:
+The destination matches:
 
 ```text
-show ip route
+10.0.0.0/8
+10.10.0.0/16
+10.10.10.0/24
+10.10.10.128/25
+0.0.0.0/0
 ```
 
-Inspect the routing table.
+The prefix lengths are:
 
-Identify:
+```text
+/8
+/16
+/24
+/25
+/0
+```
 
-* Connected routes
-* Local routes
-* Default route, if present
+The longest matching prefix is:
 
-Then explain which route would be selected for different destination IP addresses.
+```text
+/25
+```
+
+Therefore:
+
+```text
+10.10.10.128/25
+```
+
+is selected.
 
 ---
 
-# Key Takeaways
+# 11. Why `/25` Can Be More Specific Than `/24`
 
-* A destination can match multiple routes.
-* Routers need a method to choose between matching routes.
+A `/24` network:
+
+```text
+10.10.10.0/24
+```
+
+can be divided into two `/25` networks:
+
+```text
+10.10.10.0/25
+```
+
+and:
+
+```text
+10.10.10.128/25
+```
+
+The ranges are:
+
+```text
+10.10.10.0   – 10.10.10.127
+10.10.10.128 – 10.10.10.255
+```
+
+Therefore:
+
+```text
+10.10.10.150
+```
+
+belongs to:
+
+```text
+10.10.10.128/25
+```
+
+This is an early example of why understanding subnetting will become important.
+
+---
+
+# 12. Router Decision Process
+
+A simplified mental model is:
+
+```text
+Packet Arrives
+      │
+      ▼
+Read Destination IP
+      │
+      ▼
+Search Routing Table
+      │
+      ▼
+Find Matching Routes
+      │
+      ▼
+Compare Prefix Lengths
+      │
+      ▼
+Select Longest Matching Prefix
+      │
+      ▼
+Forward Packet
+```
+
+This is a conceptual model. Real routing decisions can involve additional factors such as route preference and metrics.
+
+---
+
+# 13. Don't Confuse Prefix Matching With Metrics
+
+This distinction is important.
+
+### Longest Prefix Match
+
+Answers:
+
+> **Which destination prefix is the most specific match?**
+
+### Administrative Distance
+
+Helps determine:
+
+> **Which routing source should be preferred?**
+
+### Metric
+
+Helps determine:
+
+> **Which path is preferred within a routing protocol or routing mechanism?**
+
+These concepts will be studied separately.
+
+For now, focus on understanding Longest Prefix Match.
+
+---
+
+# 14. Why Route Selection Matters
+
+Routing determines how network traffic moves.
+
+For example:
+
+```text
+User Network
+      │
+      ▼
+Firewall
+      │
+      ▼
+Production Network
+```
+
+An organization may expect traffic to follow this path.
+
+A routing change could potentially create another path:
+
+```text
+User Network
+      │
+      ▼
+Router
+      │
+      ▼
+Production Network
+```
+
+That could affect:
+
+* Security controls
+* Network segmentation
+* Firewall enforcement
+* Monitoring
+* Traffic visibility
+* Access paths
+
+Therefore, routing decisions are also security-relevant.
+
+---
+
+# 15. Cybersecurity Perspective
+
+Security professionals should understand routing because attackers and defenders both care about traffic paths.
+
+Routing can affect:
+
+* Where traffic is inspected.
+* Where firewalls are placed.
+* Which networks can communicate.
+* How network segmentation is enforced.
+* Where monitoring systems see traffic.
+
+Unexpected routing behavior can therefore become an investigation clue.
+
+---
+
+# 16. GRC Perspective
+
+A GRC professional may encounter routing while reviewing:
+
+* Network architecture
+* Network segmentation
+* Security boundaries
+* Change requests
+* Infrastructure configurations
+* Access paths
+* Security control placement
+
+A GRC analyst does not necessarily need to configure routers, but understanding route selection helps them ask better questions.
+
+For example:
+
+> "Does this routing change alter the intended security boundary?"
+
+or:
+
+> "Will this traffic still pass through the required security control?"
+
+---
+
+# 17. OSI Model Mapping
+
+| OSI Layer               | Topics                                                                       |
+| ----------------------- | ---------------------------------------------------------------------------- |
+| Layer 7 – Application   | Browser / Applications                                                       |
+| Layer 6 – Presentation  | Not studied yet                                                              |
+| Layer 5 – Session       | Not studied yet                                                              |
+| Layer 4 – Transport     | Not studied yet                                                              |
+| **Layer 3 – Network**   | **IP Address, Router, Routing Table, Route Selection, Longest Prefix Match** |
+| **Layer 2 – Data Link** | **MAC Address, ARP, Switch**                                                 |
+| Layer 1 – Physical      | Ethernet / Wi-Fi                                                             |
+
+Lesson 9 continues our **Layer 3** journey.
+
+---
+
+# 18. Key Takeaways
+
+* A router can have multiple routes that match a destination.
+* The router needs a rule to select the appropriate route.
+* A prefix length represents the size of the network prefix.
+* A larger prefix length means a more specific network.
 * Longest Prefix Match selects the most specific matching route.
-* A larger prefix length is more specific.
 * `/24` is more specific than `/16`.
 * `/16` is more specific than `/8`.
-* `/0` is the least specific and represents the default route.
-* Route selection directly affects traffic flow and security architecture.
+* `/0` represents the default route and is the least specific.
+* A route must first match the destination before it can be selected.
+* Route selection affects real network traffic and therefore security architecture.
 
 ---
 
-# Before You Move On
+# Lesson 9 Checkpoint
 
-Can you explain these without looking at your notes?
+Before considering this lesson complete, you should be able to explain:
 
-* [ ] What is a prefix?
-* [ ] What does `/8` represent at a high level?
-* [ ] What does `/24` represent at a high level?
-* [ ] What is Longest Prefix Match?
-* [ ] Why does `/24` beat `/16`?
-* [ ] Why is `/0` less specific?
-* [ ] What happens when multiple routes match?
-* [ ] Why does route selection matter for cybersecurity?
-* [ ] Why might GRC professionals care about routing?
+* What a network prefix is.
+* What `/8`, `/16`, `/24`, and `/25` mean at a high level.
+* What Longest Prefix Match means.
+* The difference between route matching and route selection.
+* Why a `/24` route can beat a `/16` route.
+* Why the default route acts as a fallback.
+* Why routing decisions matter to cybersecurity.
+* Why routing knowledge is useful in GRC.
 
 ---
 
-# Next Chapter
+# What's Next?
 
-We now know how a router chooses the most specific matching route.
+We now know **which destination prefix is the most specific match**.
 
-But another question remains:
+But we haven't answered another important question:
 
-> **What if two routes have the same destination and prefix length?**
+> **What happens when multiple routes have the same destination prefix?**
 
-That leads us to **route preference, metrics, and how routers choose between competing routes.**
+That takes us into:
+
+**Administrative Distance, Route Preference, and Metrics.**

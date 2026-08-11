@@ -1,0 +1,23 @@
+                    PACKET
+                      │
+                      ▼
+               Destination IP
+                   8.8.8.8
+                      │
+                      ▼
+               ROUTING TABLE
+                      │
+                      ▼
+            Specific route exists?
+                 /          \
+               YES           NO
+                │             │
+                ▼             ▼
+         Use specific      Check Default
+             route             Route
+                               │
+                               ▼
+                          0.0.0.0/0
+                               │
+                               ▼
+                         UPSTREAM / ISP

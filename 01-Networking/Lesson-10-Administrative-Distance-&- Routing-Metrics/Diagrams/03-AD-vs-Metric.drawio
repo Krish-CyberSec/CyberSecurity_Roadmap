@@ -20,3 +20,9 @@
                          ▼
                     OSPF prefers
                       Cost 10
+
+Administrative Distance
+→ Compare routing sources
+
+Metric
+→ Compare paths within a routing protocol

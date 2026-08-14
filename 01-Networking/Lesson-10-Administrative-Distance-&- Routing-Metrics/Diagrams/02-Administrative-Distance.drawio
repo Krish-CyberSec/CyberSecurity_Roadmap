@@ -1,0 +1,15 @@
+        ROUTING SOURCE
+              │
+              ▼
+     Administrative Distance
+              │
+      ┌───────┼────────┐
+      │       │        │
+      ▼       ▼        ▼
+   Static    OSPF      RIP
+    1        110       120
+
+              │
+              ▼
+
+        LOWER = PREFERRED

@@ -1,0 +1,43 @@
+                 PACKET
+                   │
+                   ▼
+             Destination IP
+                   │
+                   ▼
+           Search Routing Table
+                   │
+                   ▼
+            Find Matching Routes
+                   │
+                   ▼
+          Longest Prefix Match
+                   │
+                   ▼
+       ┌─────────────────────────┐
+       │ Competing routes for    │
+       │ same destination prefix?│
+       └────────────┬────────────┘
+                    │
+                   YES
+                    │
+                    ▼
+         Administrative Distance
+                    │
+                    ▼
+          Same routing source?
+                    │
+                   YES
+                    │
+                    ▼
+          Routing Protocol Metric
+                    │
+                    ▼
+              Best Path
+                    │
+                    ▼
+             Forward Packet
+
+
+Conceptual learning model —
+actual implementations can have additional
+route-selection details.

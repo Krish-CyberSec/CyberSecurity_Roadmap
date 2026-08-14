@@ -1,0 +1,18 @@
+                  ROUTER
+                     │
+        ┌────────────┼────────────┐
+        │            │            │
+        ▼            ▼            ▼
+     STATIC        OSPF          RIP
+     AD = 1       AD = 110      AD = 120
+        │            │            │
+        └────────────┼────────────┘
+                     │
+                     ▼
+             SAME DESTINATION
+                     │
+                     ▼
+             Which source wins?
+                     │
+                     ▼
+          LOWER AD IS PREFERRED

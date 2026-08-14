@@ -13,3 +13,11 @@
               ▼
 
         LOWER = PREFERRED
+
+
+
+        Directly Connected → 0
+        Static             → 1
+        EIGRP              → 90
+        OSPF               → 110
+        RIP                → 120

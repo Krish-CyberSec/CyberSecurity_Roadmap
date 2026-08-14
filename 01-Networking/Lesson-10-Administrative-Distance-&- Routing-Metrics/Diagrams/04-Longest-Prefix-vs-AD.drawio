@@ -1,0 +1,39 @@
+                 DESTINATION
+                10.10.10.50
+                     │
+                     ▼
+              ROUTING TABLE
+                     │
+          ┌──────────┴──────────┐
+          │                     │
+          ▼                     ▼
+     10.0.0.0/8           10.10.0.0/16
+          │                     │
+          │                     │
+          └──────────┬──────────┘
+                     │
+                     ▼
+              BOTH MATCH
+                     │
+                     ▼
+          LONGEST PREFIX MATCH
+                     │
+                     ▼
+                  /16 WINS
+
+
+
+          SAME DESTINATION PREFIX
+                     │
+          ┌──────────┴──────────┐
+          ▼                     ▼
+       STATIC                  OSPF
+       AD = 1                AD = 110
+          │                     │
+          └──────────┬──────────┘
+                     ▼
+             ADMINISTRATIVE
+                DISTANCE
+                     │
+                     ▼
+                 STATIC

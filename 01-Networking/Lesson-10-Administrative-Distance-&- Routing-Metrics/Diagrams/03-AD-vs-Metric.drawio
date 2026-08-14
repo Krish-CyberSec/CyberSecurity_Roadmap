@@ -1,0 +1,22 @@
+             ROUTER
+                │
+        ┌───────┴────────┐
+        │                │
+        ▼                ▼
+     STATIC             OSPF
+     AD = 1            AD = 110
+                         │
+                         │
+                 Same routing source
+                         │
+                    ┌────┴────┐
+                    │         │
+                    ▼         ▼
+                 Path A     Path B
+                 Cost 10    Cost 30
+                    │         │
+                    └────┬────┘
+                         │
+                         ▼
+                    OSPF prefers
+                      Cost 10

@@ -18,3 +18,14 @@ Possible values:
 
 Number of subnets:
 2¹ = 2
+
+
+/26
+
+NNNNNNNN.NNNNNNNN.NNNNNNNN.NNHHHHHH
+                             ││
+                             └┴── 2 Borrowed Bits
+
+Number of subnets:
+
+2² = 4

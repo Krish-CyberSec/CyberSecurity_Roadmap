@@ -1,0 +1,26 @@
+              192.168.50.0/24
+┌─────────────────────────────────────────────────────────┐
+│                                                         │
+│ Web Servers /26 │ Application /27 │ Database /28 │ Mgmt │
+│ .0 ───── .63    │ .64 ───── .95  │ .96 ─── .111 │/29  │
+│                 │                 │               │.112 │
+│                 │                 │               │ .119│
+└─────────────────────────────────────────────────────────┘
+
+Requirements:
+
+Web Servers   → 60 hosts
+Application   → 25 hosts
+Database      → 10 hosts
+Management    → 5 hosts
+
+
+Largest requirement
+        ↓
+Allocate first
+        ↓
+Next available boundary
+        ↓
+Smaller requirement
+        ↓
+Repeat

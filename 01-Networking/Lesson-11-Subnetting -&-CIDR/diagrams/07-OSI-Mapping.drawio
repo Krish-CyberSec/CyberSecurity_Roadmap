@@ -1,0 +1,33 @@
+┌──────────────────────────────────────┐
+│ Layer 7 – Application                │
+│ Browser / Applications               │
+├──────────────────────────────────────┤
+│ Layer 6 – Presentation               │
+│ Not studied yet                      │
+├──────────────────────────────────────┤
+│ Layer 5 – Session                    │
+│ Not studied yet                      │
+├──────────────────────────────────────┤
+│ Layer 4 – Transport                  │
+│ Not studied yet                      │
+├──────────────────────────────────────┤
+│ Layer 3 – NETWORK                    │
+│                                      │
+│ IP Address                           │
+│ Router                               │
+│ Routing Table                        │
+│ Route Selection                      │
+│ Subnetting                           │
+│ CIDR                                 │
+│ VLSM                                 │
+│                                      │
+│              LESSON 11               │
+├──────────────────────────────────────┤
+│ Layer 2 – DATA LINK                  │
+│ MAC Address                          │
+│ ARP                                  │
+│ Switch                               │
+├──────────────────────────────────────┤
+│ Layer 1 – PHYSICAL                   │
+│ Ethernet / Wi-Fi                     │
+└──────────────────────────────────────┘

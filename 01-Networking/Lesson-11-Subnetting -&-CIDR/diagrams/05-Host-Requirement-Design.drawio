@@ -1,0 +1,19 @@
+        REQUIREMENT
+
+        50 HOSTS
+            │
+            ▼
+     How many host bits?
+            │
+            ▼
+      2^5 - 2 = 30
+            │
+         Not enough
+            │
+            ▼
+      2^6 - 2 = 62
+            │
+         Enough
+            │
+            ▼
+        /26 SUBNET

@@ -1,0 +1,20 @@
+/24
+
+NNNNNNNN.NNNNNNNN.NNNNNNNN.HHHHHHHH
+                              8 Host Bits
+
+
+/25
+
+NNNNNNNN.NNNNNNNN.NNNNNNNN.NHHHHHHH
+                             │
+                             └── Borrowed Bit
+
+Borrowed bits:
+1
+
+Possible values:
+0 or 1
+
+Number of subnets:
+2¹ = 2

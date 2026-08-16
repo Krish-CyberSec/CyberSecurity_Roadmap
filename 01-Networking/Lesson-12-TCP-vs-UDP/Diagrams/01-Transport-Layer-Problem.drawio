@@ -1,0 +1,24 @@
+                  SERVER
+        ┌─────────────────────────┐
+        │                         │
+        │      Web Server         │
+        │      SSH                │
+        │      DNS                │
+        │      Database           │
+        │                         │
+        └────────────┬────────────┘
+                     │
+                     │
+              "Which application
+                gets the data?"
+                     │
+                     ▼
+              TRANSPORT LAYER
+                     │
+          ┌──────────┴──────────┐
+          ▼                     ▼
+         TCP                   UDP
+
+
+IP Address → Which host?
+Port       → Which service endpoint?

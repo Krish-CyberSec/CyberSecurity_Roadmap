@@ -1,0 +1,21 @@
+             TCP THREE-WAY HANDSHAKE
+
+Client                                      Server
+  │                                            │
+  │────────────── SYN ───────────────────────►│
+  │                                            │
+  │◄──────────── SYN-ACK ─────────────────────│
+  │                                            │
+  │────────────── ACK ───────────────────────►│
+  │                                            │
+  │                                            │
+  │         CONNECTION ESTABLISHED             │
+  │                                            │
+  │══════════ Application Data ═══════════════►│
+
+
+
+
+SYN     → Connection initiation
+SYN-ACK → Acknowledge + participate in setup
+ACK     → Final acknowledgement

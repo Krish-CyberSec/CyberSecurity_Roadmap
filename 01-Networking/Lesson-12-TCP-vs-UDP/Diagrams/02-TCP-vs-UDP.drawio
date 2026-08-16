@@ -1,0 +1,19 @@
+                    TRANSPORT LAYER
+                           │
+              ┌────────────┴────────────┐
+              │                         │
+             TCP                       UDP
+              │                         │
+      Connection-oriented         Connectionless
+              │                         │
+      Ordered byte stream          Datagrams
+              │                         │
+      Acknowledgements            No TCP-style ACK
+              │                         │
+      Retransmission              No TCP-style
+                                   retransmission
+              │                         │
+      More mechanisms             Lower overhead
+              │                         │
+      Reliability-oriented        Application-specific
+                                   behavior possible

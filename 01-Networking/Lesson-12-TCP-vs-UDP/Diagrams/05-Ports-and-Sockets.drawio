@@ -1,0 +1,27 @@
+                  SERVER
+            10.10.10.50
+                  │
+        ┌─────────┼─────────┐
+        │         │         │
+        ▼         ▼         ▼
+     :22       :53       :443
+      │          │          │
+     SSH        DNS       HTTPS
+
+
+
+Client
+192.168.1.20:51544
+       │
+       │ TCP
+       ▼
+Server
+10.10.10.50:443
+
+Source IP + Source Port
+        +
+Destination IP + Destination Port
+        +
+Protocol
+        ↓
+Communication flow

@@ -1,0 +1,21 @@
+                         UDP
+                          │
+          ┌───────────────┼───────────────┐
+          │               │               │
+          ▼               ▼               ▼
+         DNS          Real-Time        Gaming
+                       Media
+          │               │               │
+          ▼               ▼               ▼
+     Low overhead     Low latency     Fresh state
+          │               │               │
+          └───────────────┼───────────────┘
+                          ▼
+                  Application decides
+                  additional behavior
+
+HTTP/3
+  ↓
+QUIC
+  ↓
+UDP

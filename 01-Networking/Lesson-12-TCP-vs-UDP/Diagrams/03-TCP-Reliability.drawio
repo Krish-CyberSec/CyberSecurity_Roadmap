@@ -1,0 +1,32 @@
+                      TCP RELIABILITY
+
+Sender                                      Receiver
+  │                                            │
+  │ Segment 1                                  │
+  ├───────────────────────────────────────────►│
+  │                                            │
+  │ Segment 2                                  │
+  ├───────────────────────────────────────────►│
+  │                                            │
+  │ Segment 3        X LOST                    │
+  │                                            │
+  │ Segment 4                                  │
+  ├───────────────────────────────────────────►│
+  │                                            │
+  │                ACK / missing data          │
+  │◄───────────────────────────────────────────┤
+  │                                            │
+  │ Retransmit missing data                   │
+  ├───────────────────────────────────────────►│
+  │                                            │
+  │              Ordered byte stream           │
+  │◄───────────────────────────────────────────┤
+
+
+Sequence information
+        +
+Acknowledgements
+        +
+Retransmission
+        ↓
+Reliable ordered transport behavior

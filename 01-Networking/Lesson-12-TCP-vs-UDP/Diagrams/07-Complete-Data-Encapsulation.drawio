@@ -1,0 +1,39 @@
+APPLICATION
+     │
+     │ Application Data
+     ▼
+┌──────────────────────┐
+│ TCP / UDP            │
+│ Source Port          │                                                           
+│ Destination Port     │
+└──────────┬───────────┘
+           │
+           │ Segment / Datagram
+           ▼
+┌──────────────────────┐
+│ IP                   │
+│ Source IP            │
+│ Destination IP       │
+└──────────┬───────────┘
+           │
+           │ Packet
+           ▼
+┌──────────────────────┐
+│ Ethernet / Wi-Fi     │
+│ Source MAC           │
+│ Destination MAC      │
+└──────────┬───────────┘
+           │
+           │ Frame
+           ▼
+       PHYSICAL
+           │
+           ▼
+         BITS
+
+
+
+Layer 4 → Port / TCP / UDP
+Layer 3 → IP
+Layer 2 → MAC
+Layer 1 → Physical transmission

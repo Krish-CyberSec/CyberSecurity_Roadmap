@@ -1,0 +1,30 @@
+Scanner                         Target
+   |                               |
+   | SYN                           |
+   |-----------------------------> |
+   |                               |
+   | SYN-ACK                       |
+   | <-----------------------------|
+   |                               |
+   | ACK                           |
+   |-----------------------------> |
+   |                               |
+   | Connection completed          |
+
+
+Scanner                         Target
+   |                               |
+   | SYN                           |
+   |-----------------------------> |
+   |                               |
+   | SYN-ACK                       |
+   | <-----------------------------|
+   |                               |
+   | RST                           |
+   |-----------------------------> |
+   |                               |
+   | Connection not completed      |
+
+
+Connect Scan → completes handshake
+SYN Scan     → probes without completing full connection

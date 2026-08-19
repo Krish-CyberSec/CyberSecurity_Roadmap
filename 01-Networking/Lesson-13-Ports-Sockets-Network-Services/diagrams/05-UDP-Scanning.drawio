@@ -1,0 +1,26 @@
+                    UDP SCAN
+
+Scanner                         Target
+   |                               |
+   |-------- UDP Probe ----------->|
+   |                               |
+   |                               |
+   |<---- ICMP Port Unreachable ---|
+   |                               |
+   ▼
+Likely CLOSED
+
+
+Scanner                         Target
+   |                               |
+   |-------- UDP Probe ----------->|
+   |                               |
+   |           NO RESPONSE         |
+   |<..............................|
+   |
+   ▼
+OPEN or FILTERED
+
+
+UDP has no TCP-style handshake,
+so interpretation can be ambiguous.

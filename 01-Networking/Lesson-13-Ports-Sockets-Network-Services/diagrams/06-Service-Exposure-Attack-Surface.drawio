@@ -1,0 +1,37 @@
+                         INTERNET
+                            |
+                        FIREWALL
+                            |
+              ┌─────────────┼─────────────┐
+              |             |             |
+              ▼             ▼             ▼
+           TCP 22        TCP 443       TCP 3306
+              |             |             |
+              ▼             ▼             ▼
+             SSH           WEB         DATABASE
+
+
+
+Port
+ ↓
+Service
+ ↓
+Why exposed?
+ ↓
+Who can access?
+ ↓
+Is it required?
+ ↓
+Security Controls
+
+
+
+             INTERNET
+                 |
+              FIREWALL
+                 |
+             WEB SERVER
+                 |
+          PRIVATE NETWORK
+                 |
+             DATABASE

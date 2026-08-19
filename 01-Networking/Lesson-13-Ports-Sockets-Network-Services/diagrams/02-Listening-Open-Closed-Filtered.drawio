@@ -1,0 +1,21 @@
+                         PORT
+                           |
+              ┌────────────┼────────────┐
+              |            |            |
+              ▼            ▼            ▼
+            OPEN         CLOSED      FILTERED
+              |            |            |
+              ▼            ▼            ▼
+          Service       No service   Firewall /
+          reachable     listening    filtering
+
+
+LOCAL HOST
+   |
+   └── LISTENING
+
+REMOTE SCANNER
+   |
+   ├── OPEN
+   ├── CLOSED
+   └── FILTERED

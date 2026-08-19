@@ -27,3 +27,27 @@
 │ Layer 1 – PHYSICAL                         │
 │ Ethernet / Wi-Fi                           │
 └────────────────────────────────────────────┘
+
+
+
+                NETWORK SECURITY VIEW
+
+Host
+ ↓
+IP Address
+ ↓
+Port
+ ↓
+Protocol
+ ↓
+Listening Service
+ ↓
+Port State
+ ↓
+Service Identification
+ ↓
+Version
+ ↓
+Exposure
+ ↓
+Security Risk

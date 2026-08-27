@@ -1311,45 +1311,6 @@ Before treating it as malicious, investigate whether the source is an authorized
 
 ---
 
-# 49. Final Interview Questions
-
-### Q1. What does SYN indicate?
-
-TCP connection establishment.
-
-### Q2. What is the difference between FIN and RST?
-
-FIN represents graceful termination, while RST represents an abrupt reset or rejection.
-
-### Q3. What does ACK do?
-
-It is used for TCP acknowledgement-related signaling.
-
-### Q4. What does SYN → RST commonly indicate during a scan?
-
-The host is reachable and the TCP port is likely closed.
-
-### Q5. What does SYN → SYN-ACK → ACK represent?
-
-Normal TCP connection establishment.
-
-### Q6. What does FIN → ACK → FIN → ACK represent?
-
-A conceptual graceful TCP connection termination sequence.
-
-### Q7. Why can many SYN packets be suspicious?
-
-Because a large number of connection attempts across many hosts or ports can be consistent with scanning or a SYN-based availability attack.
-
-### Q8. Is many TIME-WAIT sockets automatically malicious?
-
-No. They can result from normal high-volume short-lived TCP connections.
-
-### Q9. What's the difference between SYN scan and SYN flood?
-
-A SYN scan is reconnaissance designed to discover services; a SYN flood is an availability attack designed to overwhelm resources with incomplete connection attempts.
-
----
 
 # 50. OSI Model Mapping
 

@@ -1,0 +1,30 @@
+                         TCP STATES
+
+                           LISTEN
+                              |
+                              | SYN
+                              ▼
+                         SYN-SENT
+                              |
+                              |
+                         SYN-ACK
+                              |
+                              ▼
+                      SYN-RECEIVED
+                              |
+                              | ACK
+                              ▼
+                         ESTABLISHED
+                              |
+                              | FIN
+                              ▼
+                    FIN-WAIT / CLOSE-WAIT
+                              |
+                              ▼
+                          LAST-ACK
+                              |
+                              ▼
+                         TIME-WAIT
+                              |
+                              ▼
+                           CLOSED

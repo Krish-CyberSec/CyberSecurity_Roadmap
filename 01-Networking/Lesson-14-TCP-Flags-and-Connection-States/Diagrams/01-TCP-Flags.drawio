@@ -1,0 +1,25 @@
+                    TCP FLAGS
+                        |
+        ┌───────────────┼────────────────┐
+        |               |                |
+        ▼               ▼                ▼
+       SYN             ACK              FIN
+        |               |                |
+        ▼               ▼                ▼
+ Connection        Acknowledge       Graceful
+ Establishment                         Close
+
+        ┌───────────────┼────────────────┐
+        |                                |
+        ▼                                ▼
+       RST                              PSH
+        |                                |
+        ▼                                ▼
+ Reset / Abort                  Push data toward
+                                application
+
+                    URG
+                     |
+                     ▼
+             Urgent-pointer
+               significance

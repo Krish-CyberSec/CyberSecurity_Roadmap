@@ -1,0 +1,45 @@
+┌─────────────────────────────────────────────┐
+│ Layer 7 — APPLICATION                       │
+│ HTTP / DNS / SSH / Applications             │
+├─────────────────────────────────────────────┤
+│ Layer 6 — PRESENTATION                      │
+│ Not studied yet                             │
+├─────────────────────────────────────────────┤
+│ Layer 5 — SESSION                           │
+│ Not studied yet                             │
+├─────────────────────────────────────────────┤
+│ Layer 4 — TRANSPORT                         │
+│                                             │
+│ TCP                                         │
+│ UDP                                         │
+│ Ports                                       │
+│ Sockets                                     │
+│ TCP Flags                                   │
+│ TCP Connection States                       │
+│ TCP Handshake                               │
+│ TCP Termination                             │
+│                                             │
+│              ← LESSON 14                   │
+├─────────────────────────────────────────────┤
+│ Layer 3 — NETWORK                           │
+│ IP / Routing / Subnetting / CIDR / VLSM    │
+├─────────────────────────────────────────────┤
+│ Layer 2 — DATA LINK                         │
+│ MAC / ARP / Switching                       │
+├─────────────────────────────────────────────┤
+│ Layer 1 — PHYSICAL                          │
+│ Ethernet / Wi-Fi                            │
+└─────────────────────────────────────────────┘
+
+
+LESSON 14 SECURITY VIEW
+
+TCP Flags
+   ↓
+Connection States
+   ↓
+Packet Sequence
+   ↓
+Traffic Pattern
+   ↓
+SOC / Security Analysis

@@ -1,0 +1,25 @@
+                    TCP PORT SCANNING
+
+                       Scanner
+                          |
+                          | SYN
+                          ▼
+                       Target
+                          |
+             ┌────────────┴────────────┐
+             |                         |
+          SYN-ACK                     RST
+             |                         |
+             ▼                         ▼
+       Likely OPEN              Likely CLOSED
+             |
+             |
+             ▼
+            RST
+             |
+             ▼
+       SYN SCAN ENDS
+
+
+SYN-ACK → Evidence of a reachable TCP service
+RST     → Evidence of a reachable but closed TCP port

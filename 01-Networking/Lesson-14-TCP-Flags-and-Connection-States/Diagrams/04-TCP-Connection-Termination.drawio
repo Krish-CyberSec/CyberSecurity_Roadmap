@@ -1,0 +1,35 @@
+             TCP GRACEFUL TERMINATION
+
+Client                                      Server
+  |                                            |
+  |                 FIN                        |
+  |------------------------------------------->|
+  |                                            |
+  |                 ACK                        |
+  |<-------------------------------------------|
+  |                                            |
+  |                                            |
+  |                 FIN                        |
+  |<-------------------------------------------|
+  |                                            |
+  |                 ACK                        |
+  |------------------------------------------->|
+  |                                            |
+  |              CONNECTION CLOSED             |
+
+
+FIN
+↓
+"I am finished sending."
+
+ACK
+↓
+"I received that."
+
+FIN
+↓
+"I am finished too."
+
+ACK
+↓
+"Confirmed."

@@ -28,3 +28,6 @@
                               |
                               ▼
                            CLOSED
+
+The exact state path depends on which
+endpoint initiates the connection or termination.

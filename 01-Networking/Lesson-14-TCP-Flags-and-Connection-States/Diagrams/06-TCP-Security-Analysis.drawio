@@ -1,0 +1,37 @@
+                   TCP TRAFFIC
+                       |
+                       ▼
+                   TCP FLAGS
+                       |
+                       ▼
+                 CONNECTION STATE
+                       |
+                       ▼
+                 PACKET SEQUENCE
+                       |
+                       ▼
+                  TRAFFIC PATTERN
+                       |
+                       ▼
+                 CONTEXT / BASELINE
+                       |
+                       ▼
+                  SECURITY ANALYSIS
+
+
+
+SYN → SYN-ACK → ACK
+        ↓
+Normal establishment
+
+SYN → SYN-ACK → RST
+        ↓
+Potential SYN scan
+
+Many SYNs
+        ↓
+Possible scanning / SYN flood / legitimate scanner
+
+FIN → ACK → FIN → ACK
+        ↓
+Graceful termination
